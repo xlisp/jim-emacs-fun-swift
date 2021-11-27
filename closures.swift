@@ -32,3 +32,17 @@ let numberSum = numbers.reduce(0, { x, y in
     x + y
 })
 // => 523
+
+let collections = [[5, 2, 7], [4, 8], [9, 1, 3]]
+
+let flat = collections.flatMap { $0 }
+// 打平为一个数组 5, 2, 7 ...
+
+
+let marks = [4, 5, 8, 2, 9, 7]
+let totalPass = marks.filter { $0 >= 7}.reduce(0, +)
+//=> 24
+
+let numbers = [20, 17, 35, 4, 12]
+let evenSquares = numbers.map { $0 * $0 }.filter { $0 % 2 == 0 }
+// 400, 16, 144
