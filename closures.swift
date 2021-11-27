@@ -11,3 +11,24 @@ var reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
     return s1 > s2
 })
 // => Ewa , Daniella, Chris, Barry, Alex
+
+let numbers = [99, 11, 321, 3, 89]
+
+let strings = numbers.map { (number) -> String in
+    return "===" + String(number);
+}
+// 加上===的前缀的数字 "===99", "===11"
+
+let strings = numbers.filter { (number) -> Bool in
+    if number > 10 {
+        return true;
+    } else {
+        return false;
+    }
+}
+//=> 99, 11, 321 , 89
+
+let numberSum = numbers.reduce(0, { x, y in
+    x + y
+})
+// => 523
