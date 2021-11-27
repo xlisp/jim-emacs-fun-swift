@@ -46,3 +46,7 @@ let totalPass = marks.filter { $0 >= 7}.reduce(0, +)
 let numbers = [20, 17, 35, 4, 12]
 let evenSquares = numbers.map { $0 * $0 }.filter { $0 % 2 == 0 }
 // 400, 16, 144
+
+let totalPass = marks.reduce(1, {x,y in x * y})
+//=> totalPass: Int = 20160
+
