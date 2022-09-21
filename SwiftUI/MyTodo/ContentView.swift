@@ -17,29 +17,89 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+//        NavigationView {
+//            List {
+//                ForEach(items) { item in
+//                    NavigationLink {
+//                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+//                    } label: {
+//                        Text(item.timestamp!, formatter: itemFormatter)
+//                    }
+//                }
+//                .onDelete(perform: deleteItems)
+//            }
+//            }
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    EditButton()
+//                }
+//                ToolbarItem {
+//                    Button(action: addItem) {
+//                        Label("Add Item", systemImage: "plus")
+//                    }
+//                }
+//            }
+//            Text("Select an item")
+//        }
+        VStack(alignment: .leading, spacing: 5) {
+            // 滚动的竖直的布局
+            ScrollView(.vertical, showsIndicators: false, content: {
+                
+                Image(systemName: "moon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 350.0, alignment: .center)
+                    .clipped()
+                Image(systemName: "moon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 350.0, alignment: .center)
+                    .clipped()
+                Image(systemName: "moon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 350.0, alignment: .center)
+                    .clipped()
+
+            })
+            // 底部的的按钮
+            HStack(alignment: .center, spacing: 5){
+                Button(action: addItem){
+                    // OK
+                    //Label("Add Item", systemImage: "plus")
+                    //
+                    VStack(){
+                        Image(systemName: "arrow.2.squarepath")
+                        Text("分享")
                     }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    //
+                }.padding(10)
+                Button(action: addItem){
+                    // OK
+                    //Label("Add Item", systemImage: "plus")
+                    //
+                    VStack(){
+                        Image(systemName: "arrow.2.squarepath")
+                        Text("保存")
                     }
-                }
-            }
-            Text("Select an item")
+                    //
+                }.padding(10)
+                Button(action: addItem){
+                    // OK
+                    //Label("Add Item", systemImage: "plus")
+                    //
+                    VStack(){
+                        Image(systemName: "arrow.2.squarepath")
+                        Text("测试")
+                    }
+                    //
+                }.padding(10)
+
+                // . 属性内边距
+            }.padding(10)
         }
+        // 最后的点：导航
+        .navigationBarTitle("笔记分享", displayMode: .inline)
     }
 
     private func addItem() {
